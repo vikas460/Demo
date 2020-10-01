@@ -1,0 +1,30 @@
+<!--
+    @ Des: Generic component to implement pagination. Here you only have to pass the list of recodrs 
+    you want to show up using pagination also you have to pass the columns fields you desire to display.
+-->
+
+<apex:component controller="ComponentController">
+  <apex:attribute name="listo" description="This is color for the border." type="contact[]" required="false" assignTo="{!idList}"/>
+  <apex:attribute name="listofield" description="This is color for the border." type="string[]" required="false" assignTo="{!SobjFieldList}"/>     
+     
+    <apex:form >
+       <apex:pageblock id="pg">
+          <apex:pageBlockTable value="{!SObjectRecs}" var="rec">
+             <apex:repeat value="{!FieldList}" var="fl">
+                <apex:column value="{!rec[fl]}"/>
+             </apex:repeat> 
+          </apex:pageBlockTable>
+       
+          <apex:panelGrid columns="7">
+             <apex:commandButton status="fetchStatus" reRender="pg" value="First" action="{!setRecords.first}" disabled="{!!setRecords.HasPrevious}" />
+             <apex:commandButton status="fetchStatus" reRender="pg" value="Previous" action="{!setRecords.previous}" disabled="{!!setRecords.HasPrevious}" />
+             <apex:commandButton status="fetchStatus" reRender="pg" value="Next" action="{!setRecords.next}" disabled="{!!setRecords.HasNext}" />
+             <apex:commandButton status="fetchStatus" reRender="pg" value="Last" action="{!setRecords.last}" disabled="{!!setRecords.HasNext}"/>
+             <apex:outputPanel style="color:green;">
+                  <apex:actionStatus id="fetchStatus" startText="Fetching..." stopText=""/>
+             </apex:outputPanel>
+          </apex:panelGrid>
+       </apex:pageblock>
+    </apex:form>
+ 
+</apex:component>

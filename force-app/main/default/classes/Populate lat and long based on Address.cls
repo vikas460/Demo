@@ -9,7 +9,7 @@ public with sharing class LatLongLookup {
     }
 /**
  * Lat_Lon_Lookup description
- * @param  KioskIds list of records
+ *
  * @Des: 1. Replace Kiosk__c with your custom object name. 
  *       2. Check if you have used the same field names in the custom object.
      
