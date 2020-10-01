@@ -1,9 +1,20 @@
+/**
+ * @ Des: This code can be used for automatically populating the
+ *  latitude and longitude of addresses in a custom object.
+ */ 
+
 public with sharing class LatLongLookup {
     public LatLongLookup() {
         system.debug('This is for Test coverage');
     }
-
-   /* @future(callout=true)
+/**
+ * Lat_Lon_Lookup description
+ * @param  KioskIds list of records
+ * @Des: 1. Replace Kiosk__c with your custom object name. 
+ *       2. Check if you have used the same field names in the custom object.
+     
+ */ 
+    @future(callout=true)
     public static void Lat_Lon_Lookup(set<id> KioskIds) {
         system.debug(logginglevel.info, '*****KioskIds='+KioskIds);
         List<Kiosk__c> kList = [select Street_Address__c,City__c,State__c,Zip_Code__c from Kiosk__c where id in :KioskIds]; 
@@ -62,5 +73,5 @@ public with sharing class LatLongLookup {
     public class Locatn{
         public decimal lat {get;set;}
         public decimal lng {get;set;}
-    }*/
+    }
 }
