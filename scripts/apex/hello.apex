@@ -1,4 +1,5 @@
 I am editing to see o/p for devops git clone command check .and now editng to check git fetch and pull
+now checkng for pure git pull command 
 // Use .apex files to store anonymous Apex.
 // You can execute anonymous Apex in VS Code by selecting the
 //     apex text and running the command:
